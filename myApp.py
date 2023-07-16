@@ -2,11 +2,10 @@ from flask import Flask, request,jsonify
 import joblib
 app = Flask(__name__)
 
-@app.route('/churn',methods=['GET'])
+@app.route('/churn',methods=['POST'])
 def churn():
-    if request.method == 'GET':
+    if request.method == 'POST':
         res = request.form
-        
         model = joblib.load('rf_churn')
         pred = model.predict([[619,42,2,0.0,0,0,0,101348.88,0,0,0]])
         # return jsonify(
