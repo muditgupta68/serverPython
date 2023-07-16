@@ -6,11 +6,16 @@ app = Flask(__name__)
 def churn():
     if request.method == 'GET':
         res = request.form
+        
         model = joblib.load('rf_churn')
         pred = model.predict([[619,42,2,0.0,0,0,0,101348.88,0,0,0]])
-        return jsonify(
-            data=res,
-            pred=int(pred[0]))
+        # return jsonify(
+        #     data=res,
+        #     pred=int(pred[0]))
+        if(res):
+            return f'The data recieved is {res}'
+        else:
+            return 'data not recieved'        
         
 @app.route('/',methods=['GET'])
 def start():
