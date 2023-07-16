@@ -6,10 +6,9 @@ app = Flask(__name__)
 def basic():
     if request.method == 'POST':
         res = request.form
-        print(res)
     model = joblib.load('rf_churn')
     pred = model.predict([[619,42,2,0.0,0,0,0,101348.88,0,0,0]])
-    return f"Prediction is : {pred[0]}";
+    return {'data':res,'pred':pred[0]};
 
 
 if __name__ == '__main__':
