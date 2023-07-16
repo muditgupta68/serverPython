@@ -2,7 +2,7 @@ from flask import Flask, request,jsonify
 import joblib
 app = Flask(__name__)
 
-@app.route('/',methods=['POST'])
+@app.route('/churn',methods=['POST'])
 def basic():
     if request.method == 'POST':
         res = request.form
@@ -11,7 +11,10 @@ def basic():
         return jsonify(
             data=res,
             pred=int(pred[0]))
-
+        
+@app.route('/',methods=['GET'])
+def basic():
+    return 'Hello Mudit'
 
 if __name__ == '__main__':
 	app.run()
