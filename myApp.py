@@ -10,7 +10,7 @@ def basic():
         pred = model.predict([[619,42,2,0.0,0,0,0,101348.88,0,0,0]])
         return jsonify(
             data=res,
-            pred=int(pred[0]),)
+            pred=int(pred[0]))
 
 
 if __name__ == '__main__':
