@@ -2,7 +2,7 @@ from flask import Flask, request,jsonify
 import joblib
 app = Flask(__name__)
 
-@app.route('/churn',methods=['GET','POST'])
+@app.route('/churn',methods=['POST'])
 def basic():
     if request.method == 'POST':
         res = request.form
