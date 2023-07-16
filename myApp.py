@@ -3,7 +3,7 @@ import joblib
 app = Flask(__name__)
 
 @app.route('/churn',methods=['POST'])
-def basic():
+def churn():
     if request.method == 'POST':
         res = request.form
         model = joblib.load('rf_churn')
@@ -13,7 +13,7 @@ def basic():
             pred=int(pred[0]))
         
 @app.route('/',methods=['GET'])
-def basic():
+def start():
     return 'Hello Mudit'
 
 if __name__ == '__main__':
